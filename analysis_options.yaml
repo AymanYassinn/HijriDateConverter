@@ -1,0 +1,7 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    #package_names: true
+    constant_identifier_names: false
+    file_names: false
