@@ -179,7 +179,10 @@ class JHijriPicker extends StatelessWidget {
                                   backgroundColor: MaterialStateProperty.all(
                                       backgroundColor),
                                 ),
-                                onPressed: () => _handleCancel(context),
+                                onPressed: onCancel ??
+                                    () {
+                                      Navigator.pop(context);
+                                    },
                                 child: Text(
                                   cancelButtonT ?? "Cancel",
                                   style: TextStyle(
@@ -199,7 +202,11 @@ class JHijriPicker extends StatelessWidget {
                                   backgroundColor: MaterialStateProperty.all(
                                       backgroundColor),
                                 ),
-                                onPressed: () => _handleOk(context),
+                                onPressed: onOk != null
+                                    ? onOk!(sel)
+                                    : () {
+                                        Navigator.pop(context, startDate);
+                                      },
                                 child: Text(
                                   okButtonT ?? "Ok",
                                   style: TextStyle(
@@ -214,22 +221,6 @@ class JHijriPicker extends StatelessWidget {
                 ),
               ),
             )));
-  }
-
-  void _handleCancel(BuildContext c) {
-    if (onCancel != null) {
-      onCancel;
-    } else {
-      Navigator.pop(c);
-    }
-  }
-
-  void _handleOk(BuildContext c) {
-    if (onOk != null) {
-      onOk!(sel);
-    } else {
-      Navigator.pop(c, startDate);
-    }
   }
 }
 
