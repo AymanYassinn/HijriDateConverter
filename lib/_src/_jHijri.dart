@@ -1,18 +1,45 @@
 ///[Enum] Contains [DisplayFormat]
 enum DisplayFormat {
+  ///[MMMYYYY] Display monthNAME/Year
   MMMYYYY,
+
+  ///[YYYYMMM] Display Year/MonthName
   YYYYMMM,
+
+  ///[DDMMYYYY] Display Day/month/Year
   DDMMYYYY,
+
+  ///[MMDDYYYY] Display month/day/Year
   MMDDYYYY,
+
+  ///[DDDMMMYYYY] Display dayName/MonthName/Year
   DDDMMMYYYY,
+
+  ///[MMMDDYYYY] Display monthName/day/Year
   MMMDDYYYY,
+
+  ///[MMMDDDYYYY] Display monthName/dayName/Year
   MMMDDDYYYY,
+
+  ///[MMMDDDYYYY] Display day/MonthName/Year
   DDMMMYYYY,
+
+  ///[MMDD] Display Month/day
   MMDD,
+
+  ///[DDMM] Display Day/Month
   DDMM,
+
+  ///[MMMDD] Display MonthName/day
   MMMDD,
+
+  ///[DDMMM] Display day/MonthName
   DDMMM,
+
+  ///[DDDMMM] Display dayname/MonthName
   DDDMMM,
+
+  ///[MMMDDD] Display MonthName/DayName
   MMMDDD,
 }
 
@@ -186,8 +213,13 @@ int _getNewMoonMJDNIndex(int hy, int hm) {
 /// [JHijri] IS the Main Class you Can Call it like
 /// final jHijri = JHijri();
 class JHijri {
+  ///[int] Setters [fDay] and [fMonth] and [fYear]
   int fDay = 1, fMonth = 1, fYear = 1;
+
+  ///[DateTime] Setter [fDate]
   DateTime? fDate;
+
+  ///[DisplayFormat] Setter [fDisplay]
   DisplayFormat fDisplay = DisplayFormat.DDMMMYYYY;
   JHijri(
       {this.fDay = 1,
@@ -195,15 +227,34 @@ class JHijri {
       this.fYear = 1,
       this.fDate,
       this.fDisplay = DisplayFormat.DDMMMYYYY});
+
+  ///[HijriDate] getter [hijri]
   HijriDate get hijri => _jHiJ();
+
+  ///[String] getter [dayName]
   String get dayName => hijri.dayName;
+
+  ///[String] getter [monthName]
   String get monthName => hijri.monthName;
+
+  ///[int] getter [day]
   int get day => hijri.day;
+
+  ///[int] getter [month]
   int get month => hijri.month;
+
+  ///[int] getter [year]
   int get year => hijri.year;
+
+  ///[int] getter [weekday]
   int get weekday => hijri.weekday;
+
+  ///[DateTime] getter [dateTime]
   DateTime get dateTime => hijri.dateTime;
+
+  ///[String] getter [fullDate]
   String get fullDate => _fullDate();
+
   HijriDate _jHiJ() {
     if (fYear != 1) {
       return HijriDate.dataToHijri(fDay, fMonth, fYear);
@@ -214,6 +265,7 @@ class JHijri {
     }
   }
 
+  ///[JHijri] constructor [JHijri.now]
   JHijri.now() {
     fYear = 1;
     fDay = 1;
@@ -222,6 +274,7 @@ class JHijri {
     _jHiJ();
   }
 
+  ///[String] method [_fullDate]
   String _fullDate() {
     switch (fDisplay) {
       case DisplayFormat.MMDD:
@@ -256,11 +309,13 @@ class JHijri {
     }
   }
 
+  ///[override] method [toString]
   @override
   String toString() {
     return fullDate;
   }
 
+  ///[Map] method [toMap]
   Map<String, dynamic> toMap() {
     return {
       "Y": year,
@@ -278,19 +333,38 @@ class JHijri {
 class HijriDate {
   int _jDay = 1, _jMonth = 1, _jYear = 1356, _jWeekday = 1;
   String _jDayName = '', _jMonthName = '';
+
+  ///[int] getter [day]
   int get day => _jDay;
+
+  ///[int] getter [month]
   int get month => _jMonth;
+
+  ///[int] getter [year]
   int get year => _jYear;
+
+  ///[int] getter [weekday]
   int get weekday => _jWeekday;
+
+  ///[String] getter [dayName]
   String get dayName => _jDayName;
+
+  ///[String] getter [monthName]
   String get monthName => _jMonthName;
   InternalConverter _jHijriDate = InternalConverter();
   InternalConverter _jWesternDate = InternalConverter();
+
+  ///[InternalConverter] getter [hijriDate]
   InternalConverter get hijriDate => _jHijriDate;
+
+  ///[InternalConverter] getter [westernDate]
   InternalConverter get westernDate => _jWesternDate;
   DateTime _dateTime = DateTime.now();
+
+  ///[DateTime] getter [dateTime]
   DateTime get dateTime => _dateTime;
 
+  ///[HijriDate] constructor [HijriDate.dataToHijri]
   HijriDate.dataToHijri(int jD, int jM, int jY) {
     final vv = _valid(jY);
     if (vv == "w") {
@@ -338,6 +412,8 @@ class HijriDate {
       _jWeekday = 1;
     }
   }
+
+  ///[HijriDate] constructor [HijriDate.dateToHijri]
   HijriDate.dateToHijri(DateTime jDD) {
     final d = _toHijri(jDD.year, jDD.month, jDD.day);
     _jDay = d.day;
@@ -357,6 +433,8 @@ class HijriDate {
       fMonthName: englishMonth(jDD.month),
     );
   }
+
+  ///[HijriDate] constructor [HijriDate.now]
   HijriDate.now() {
     final jDD = DateTime.now();
     final d = _toHijri(jDD.year, jDD.month, jDD.day);
@@ -498,11 +576,13 @@ class HijriDate {
         fWeekday: bbNK);
   }
 
+  ///[override] method [toString]
   @override
   String toString() {
     return "$dayName-$day-$monthName-$year";
   }
 
+  ///[Map] method [toMap]
   Map<String, dynamic> toMap() {
     return {
       "Y": year,
@@ -518,13 +598,28 @@ class HijriDate {
 
 /// [InternalConverter] IS a Sub Class
 class InternalConverter {
+  ///[String] Setters [fMonthName] and [fDayName]
   String fMonthName = '', fDayName = '';
+
+  ///[int] Setters [fDay] and [fMonth] and [fYear] and [fWeekday]
   int fDay = 1, fMonth = 1, fYear = 1356, fWeekday = 1;
+
+  ///[String] getter [dayName]
   String get dayName => fDayName;
+
+  ///[String] getter [monthName]
   String get monthName => fMonthName;
+
+  ///[int] getter [day]
   int get day => fDay;
+
+  ///[int] getter [month]
   int get month => fMonth;
+
+  ///[int] getter [year]
   int get year => fYear;
+
+  ///[int] getter [weekday]
   int get weekday => fWeekday;
   InternalConverter(
       {this.fMonthName = '',
@@ -533,11 +628,14 @@ class InternalConverter {
       this.fWeekday = 1,
       this.fMonth = 1,
       this.fDay = 1});
+
+  ///[override] method [toString]
   @override
   String toString() {
     return "$dayName-$day-$monthName-$year";
   }
 
+  ///[Map] method [toMap]
   Map<String, dynamic> toMap() {
     return {
       "Y": year,

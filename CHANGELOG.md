@@ -1,10 +1,15 @@
+## 0.0.4
+
+* JHijri Fourth Release
+* Adding More Docs Comments
+
 ## 0.0.3
 
 * JHijri Third Release
 * Adding [WesternDate Format]
 * Fix Multi Import
 * Remove Extra Content
-* Remove JHijriPicker to jhijri_picker Package
+* Moving JHijriPicker to [jhijri_picker](https://pub.dev/packages/jhijri_picker)
 
 ## 0.0.2
 
