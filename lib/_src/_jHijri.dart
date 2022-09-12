@@ -144,6 +144,52 @@ String arabicMonth(var month) {
   }
 }
 
+///[String] method [englishHMonth]
+///takes the variable month
+///and return [String] value MonthName
+String englishHMonth(var month) {
+  switch (month) {
+    case 1:
+    case "محرم":
+      return "Muharram";
+    case 2:
+    case "صفر":
+      return "Safar";
+    case 3:
+    case "ربيع الأول":
+      return "Rabi' Al-Awwal";
+    case 4:
+    case "ربيع الثاني":
+      return "Rabi' Al-Thani";
+    case 5:
+    case "جمادى الأول":
+      return "Jumada Al-Awwal";
+    case 6:
+    case "جمادى الثاني":
+      return "Jumada Al-Thani";
+    case 7:
+    case "رجب":
+      return "Rajab";
+    case 8:
+    case "شعبان":
+      return "Sha'aban";
+    case 9:
+    case "رمضان":
+      return "Ramadan";
+    case 10:
+    case "شوال":
+      return "Shawwal";
+    case 11:
+    case "ذو القعدة":
+      return "Dhu Al-Qi'dah";
+    case 12:
+    case "ذو الحجة":
+      return "Dhu Al-Hijjah";
+    default:
+      return "";
+  }
+}
+
 ///[String] method [englishMonth]
 ///takes the variable month
 ///and return [String] value MonthName
@@ -173,6 +219,40 @@ String englishMonth(var month) {
       return "November";
     case 12:
       return "December";
+    default:
+      return "";
+  }
+}
+
+///[String] method [arabicEMonth]
+///takes the variable month
+///and return [String] value MonthName
+String arabicEMonth(var month) {
+  switch (month) {
+    case 1:
+      return "يناير";
+    case 2:
+      return "فبراير";
+    case 3:
+      return "مارس";
+    case 4:
+      return "ابريل";
+    case 5:
+      return "مايو";
+    case 6:
+      return "يونيو";
+    case 7:
+      return "يوليو";
+    case 8:
+      return "أغسطس";
+    case 9:
+      return "سبتمبر";
+    case 10:
+      return "أكتوبر";
+    case 11:
+      return "نوفمبر";
+    case 12:
+      return "ديسمبر";
     default:
       return "";
   }
