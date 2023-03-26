@@ -12,6 +12,9 @@ enum DisplayFormat {
   ///[MMDDYYYY] Display month/day/Year
   MMDDYYYY,
 
+  ///[YYYYMMDD] Display Year/month/day
+  YYYYMMDD,
+
   ///[DDDMMMYYYY] Display dayName/MonthName/Year
   DDDMMMYYYY,
 
@@ -377,6 +380,8 @@ class JHijri {
         return "$month-$day-$year";
       case DisplayFormat.DDMMYYYY:
         return "$day-$month-$year";
+      case DisplayFormat.YYYYMMDD:
+        return "$year-$month-$day";
       case DisplayFormat.MMMYYYY:
         return "$monthName-$year";
       case DisplayFormat.YYYYMMM:
