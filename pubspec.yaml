@@ -1,11 +1,11 @@
 name: jhijri
 description: Just An Amazing Hijri Date Converter That Converts Date From Gregorian to Hijri and From Hijri to Gregorian.
-version: 0.0.4
+version: 1.0.0
 homepage: https://github.com/AymanYassinn/
 repository: https://github.com/AymanYassinn/HijriDateConverter
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: '>=3.0.6 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

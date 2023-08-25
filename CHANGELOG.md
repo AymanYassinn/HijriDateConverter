@@ -1,3 +1,8 @@
+## 1.0.0
+
+* Update Dependencies
+* Add [YYYYMMDD] format
+
 ## 0.0.4
 
 * JHijri Fourth Release
